@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>API Integration Demo</title>
+  <style>
+    body{font-family:Arial;max-width:800px;margin:40px auto;padding:20px}
+    button{padding:10px 15px;cursor:pointer}
+    pre{background:#f4f4f4;padding:15px;overflow:auto}
+  </style>
+</head>
+<body>
+  <h1>API Integration Demo</h1>
+  <p>Fetch users from a REST API using JavaScript.</p>
+  <button onclick="loadUsers()">Get Users</button>
+  <pre id="output">Click the button.</pre>
+  <script>
+    async function loadUsers() {
+      const response = await fetch("/api/users");
+      const users = await response.json();
+      document.getElementById("output").textContent =
+        JSON.stringify(users, null, 2);
+    }
+  </script>
+</body>
+</html>
